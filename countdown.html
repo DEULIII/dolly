@@ -28,12 +28,12 @@ body{
 }
 
 .days {
-  background: ##FFB605;
+  background: #FFB605;
 }
 
 .hours {
-  background: ##FFB605;
-  color: ##FB8501;
+  background: #FFB605;
+  color: #FB8501;
 }
 
 .numbers {
@@ -83,8 +83,7 @@ body{
     <div class="days"> 
         <div id="days" class="numbers "> </div>days</div> 
       <div class="hours"> 
-        <div  id="hours" class="numbers"> </div>hours</div> 
-      <div class="minutes"> 
+        <div  id="hours" class="numbers"> </div>hours</div>  
       </div>
 
 </div>
@@ -107,8 +106,6 @@ let timer = setInterval(function() {
   // math
   let days = Math.floor(diff / (1000 * 60 * 60 * 24));
   let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
   // display
   document.getElementById("days").innerHTML=days
