@@ -1,24 +1,117 @@
-<script>
-    const year = new Date().getFullYear();
-    const myDate = new Date('Oct 20, 2024 00:00:00');
-    console.log(myDate);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+        }
 
-    // countdown
-    let timer = setInterval(function() {
+        #timer {
+            color: #eeeeee;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
 
-      // get today's date
-      const today = new Date().getTime();
+        .time-box {
+            display: inline-block;
+            padding: 20px;
+            width: 100px;
+            border-radius: 5px;
+            margin: 10px;
+        }
 
-      // get the difference
-      const diff = myDate - today;
+        .days {
+            background: #FFB605;
+        }
 
-      // math
-      let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        .hours {
+            background: #FFB605;
+            color: #FB8501;
+        }
 
-      // display
-      document.getElementById("days").innerHTML = days;
-      document.getElementById("hours").innerHTML = hours;
+        .numbers {
+            font-family: 'Montserrat', sans-serif;
+            color:  #FB8501;
+            font-size: 4em;
+            text-align: center;
+        }
 
-    }, 1000); // update every 1 second
-</script>
+        .white, .red, .blue {
+            position: absolute;
+        }
+
+        .white {
+            background:  #eeeeee;
+            height: 85px;
+            width: 75px;
+            left: 30%;
+            top: 2%;
+        }
+
+        .red {
+            background:  #EF2F3C;
+            left: 18%;
+            top: 9%;
+            height: 65px;
+            width: 70px;
+        }
+
+        .blue {
+            background:  #276FBF;
+            height: 80px;
+            width: 80px;
+            left: 60%;
+            top: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">
+        <div class="time-box days">
+            <div id="days" class="numbers"></div>
+            days
+        </div>
+        <div class="time-box hours">
+            <div id="hours" class="numbers"></div>
+            hours
+        </div>
+    </div>
+
+    <div class="white"></div>
+    <div class="red"></div>
+    <div class="blue"></div>
+
+    <script>
+        const myDate = new Date('Oct 20, 2024 00:00:00');
+        console.log(myDate);
+
+        // countdown
+        let timer = setInterval(function() {
+            // get today's date
+            const today = new Date().getTime();
+
+            // get the difference
+            const diff = myDate - today;
+
+            // math
+            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+            // display
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+        }, 1000); // update every 1 second
+    </script>
+</body>
+</html>
